@@ -14,7 +14,7 @@ on:
       - helics2
 
 jobs:
-  cpplint:
+  Build HELICS:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
