@@ -1,0 +1,40 @@
+name: Nix Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+      - main
+      - helics2
+  pull_request:
+    branches:
+      - develop
+      - main
+      - helics2
+
+jobs:
+  cpplint:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v16
+        with:
+          extra_nix_config:
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - name: Validate Nix Envoirnment
+        shell: bash
+        run: |
+          nix flake check
+      - name: Build Course Targets
+        shell: bash
+        run: |
+          nix develop -c class-targets-build
+      - name: Install Course Targets
+        shell: bash
+        run: |
+          nix develop -c class-targets-install
+      - name: Test Combo Federate
+        shell: bash
+        run: |
+          nix develop -c class-targets-combofed1-test

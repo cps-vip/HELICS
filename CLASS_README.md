@@ -12,7 +12,7 @@ Follow the [first time setup guide](CLASS_SETUP.md) for the class.
 mkdir build
 cd build
 
-cmake ../
+cmake -DCMAKE_INSTALL_PREFIX=../install -DHELICS_BUILD_CXX_SHARED_LIB=ON -DHELICS_BUILD_EXAMPLES=ON -DHELICS_BUILD_TESTS=ON ..
 
 make
 make install
