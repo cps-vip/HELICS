@@ -29,12 +29,12 @@ jobs:
       - name: Build Course Targets
         shell: bash
         run: |
-          nix develop -c class-targets-build
+          nix develop -c make class-targets-build
       - name: Install Course Targets
         shell: bash
         run: |
-          nix develop -c class-targets-install
+          nix develop -c make class-targets-install
       - name: Test Combo Federate
         shell: bash
         run: |
-          nix develop -c class-targets-combofed1-test
+          nix develop -c make class-targets-combofed1-test
