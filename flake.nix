@@ -25,6 +25,7 @@
 
           shellHook = ''
             export PATH=$(realpath ./install/bin):$PATH
+            export REPO_ROOT=$(realpath ./.)
           '';
 
           buildInputs = with pkgs; [
