@@ -12,6 +12,8 @@ docs/html
 docs/xml
 docs/latex
 vcpkg_installed/
+CMakeFiles/
+CMakeCache.txt
 
 #=============================================================================
 # Generic ignores
