@@ -1,6 +1,8 @@
 #!/bin/sh
 # Run this example from the examples/comboFederates1/ folder
 
+set -e
+
 helics_broker -f3 --loglevel=warning >broker.out &
 ../../build/bin/comboFed --name=fed1 --target=fed2 >fed1.out &
 ../../build/bin/comboFed --name=fed2 --target=fed3 >fed2.out &
